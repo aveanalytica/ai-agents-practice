@@ -48,6 +48,7 @@ description: Аналитик продаж и клиентской базы шт
 mode: subagent
 permission:
   edit: deny
+  bash: deny
 ---
 
 Ты — sales-eye, аналитик продаж антикризисного штаба ООО «РОК».
@@ -67,6 +68,7 @@ description: Аналитик логистики штаба РОК — мощн�
 mode: subagent
 permission:
   edit: deny
+  bash: deny
 ---
 
 Ты — route-eye, аналитик логистики антикризисного штаба ООО «РОК».
@@ -86,6 +88,7 @@ description: Аналитик обращений и оттока штаба РО
 mode: subagent
 permission:
   edit: deny
+  bash: deny
 ---
 
 Ты — claims-eye, аналитик обращений антикризисного штаба ООО «РОК».
