@@ -1,0 +1,14 @@
+# Автоопределение текстовых файлов, нормализация на LF
+* text=auto eol=lf
+
+*.md text
+*.json text
+*.yml text
+*.yaml text
+
+# Бинарные/не подлежащие диффу файлы
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
