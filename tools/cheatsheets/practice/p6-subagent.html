@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>AVE · Практикум · Сабагент</title>
+<style>
+  @page { size: A4; margin: 11mm 12mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 10.5px;
+    line-height: 1.45;
+    color: #4A4366;
+  }
+  .hero {
+    background: linear-gradient(135deg, #33255C 0%, #6C5CE7 55%, #8B7CF6 100%);
+    border-radius: 14px;
+    padding: 16px 20px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .hero .badge {
+    height: 46px; width: 46px; flex-shrink: 0;
+    background: rgba(255,255,255,.16); border: 1.5px solid rgba(255,255,255,.45);
+    border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 800; letter-spacing: .04em;
+  }
+  .hero .kicker {
+    font-size: 8.5px; letter-spacing: .12em; text-transform: uppercase;
+    opacity: .85; font-weight: 700; margin-bottom: 3px;
+  }
+  .hero h1 { margin: 0 0 3px; font-size: 19px; font-weight: 800; color: #fff; }
+  .hero .sub { font-size: 10px; opacity: .92; }
+  .hero .pills { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .hero .pill {
+    background: rgba(255,255,255,.18); padding: 2px 9px; border-radius: 999px;
+    font-size: 8.5px; font-weight: 600;
+  }
+  .sec { break-inside: avoid; margin-top: 13px; }
+  .sec-title { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .sec-num {
+    background: #6C5CE7; color: #fff; border-radius: 8px;
+    font-size: 9px; font-weight: 800; padding: 2px 7px;
+  }
+  .sec-name { font-size: 13px; font-weight: 800; color: #33255C; }
+  .sec-hint { font-size: 9px; color: #8B80A8; margin-left: auto; text-align: right; }
+  table { width: 100%; border-collapse: collapse; }
+  td { border: 1px solid #E4E0F0; padding: 4px 9px; vertical-align: top; }
+  td:first-child {
+    font-family: "SF Mono", Menlo, Consolas, "Courier New", monospace;
+    font-size: 9.5px; color: #33255C; background: #F4F1FD;
+    width: 26%;
+  }
+  tr:nth-child(even) td:last-child { background: #FAF9FF; }
+  .pre {
+    break-inside: avoid; background: #33255C; color: #EDE9FE;
+    border-radius: 10px; padding: 10px 13px; margin-top: 6px;
+    font-family: "SF Mono", Menlo, Consolas, "Courier New", monospace;
+    font-size: 9px; line-height: 1.5; white-space: pre-wrap;
+  }
+  .pre .c { color: #A99BFF; }
+  .callout {
+    break-inside: avoid; border-radius: 10px; padding: 9px 13px;
+    margin-top: 10px; font-size: 10px;
+  }
+  .callout .t { font-weight: 800; margin-bottom: 2px; font-size: 10.5px; }
+  .safe { background: #F6FBF8; border: 1px solid #DCEFE3; color: #1f4d33; }
+  .safe code, td code, .sec-hint code {
+    font-family: "SF Mono", Menlo, Consolas, "Courier New", monospace;
+    font-size: 9.5px; background: rgba(108,92,231,.10);
+    border-radius: 4px; padding: 0 4px;
+  }
+  td:first-child code { background: none; padding: 0; }
+  .foot {
+    margin-top: 14px; text-align: center; font-size: 8.5px; color: #A99BC9;
+    letter-spacing: .04em;
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="badge">AVE</div>
+    <div>
+      <div class="kicker">AVE Analytica School · Практикум по работе с ИИ-агентами</div>
+      <h1>Сабагент</h1>
+      <div class="sub">Постоянный специалист команды: завёл роль один раз — вызываешь снова и снова.</div>
+      <div class="pills">
+        <span class="pill">Модуль 6 · Масштаб: команда агентов</span>
+        <span class="pill">занятие 6.3</span>
+        <span class="pill">opencode · .opencode/agent/</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-title">
+      <span class="sec-num">01</span>
+      <span class="sec-name">Из чего состоит сабагент</span>
+      <span class="sec-hint">примеры ролей: «Аналитик обратной связи», «Строгий редактор»</span>
+    </div>
+    <table>
+      <tr>
+        <td>1 · Имя</td>
+        <td>Кто это. «Аналитик обратной связи», «Строгий редактор».</td>
+      </tr>
+      <tr>
+        <td>2 · Когда вызывать — триггер</td>
+        <td>По этой строке агент понимает, что пора взять именно этого специалиста.</td>
+      </tr>
+      <tr>
+        <td>3 · Системный промпт</td>
+        <td>Кто он (роль, опыт) · что делает · как отвечает (формат, тон).</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="sec">
+    <div class="sec-title">
+      <span class="sec-num">02</span>
+      <span class="sec-name">Живёт в .opencode/agent/&lt;имя&gt;.md</span>
+      <span class="sec-hint">имя файла становится именем агента — например <code>beta-feedback-analyst.md</code></span>
+    </div>
+    <div class="pre">---
+name: Аналитик обратной связи
+description: Разобрать отклики и жалобы клиентов: сгруппировать
+  темы, посчитать повторы, отметить, что горит.
+---
+<span class="c"># Системный промпт</span>
+Ты — аналитик обратной связи. Читаешь отклики и выдаёшь список
+проблем по важности: тема · сколько раз встречается · насколько
+горит. Без воды, только по делу. Персональные данные не тащишь.</div>
+  </div>
+
+  <div class="callout safe">
+    <div class="t">🧑‍🤝‍🧑 Главное</div>
+    Агенты (6.1–6.2) — временные подрядчики; сабагент — постоянная команда. Вызов явный («используй аналитика…») или автоматически по описанию. Скилл = сценарий, сабагент = роль. Не всех надо писать с нуля — есть готовые библиотеки ролей (100+). Точные пути и набор полей сверяй с документацией opencode — формат развивается.
+  </div>
+
+  <div class="foot">AVE Analytica School · Практикум по работе с ИИ-агентами · Модуль 6 «Масштаб: команда агентов» · Занятие 6.3</div>
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>AVE · Памятка модуля 1 — Постановка задачи · Шпаргалка</title>
+<style>
+  @page { size: A4; margin: 11mm 12mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 10.5px;
+    line-height: 1.45;
+    color: #3D3657;
+  }
+  .hero {
+    background: linear-gradient(135deg, #33255C 0%, #6C5CE7 55%, #8B7CF6 100%);
+    border-radius: 14px;
+    padding: 16px 20px;
+    color: #fff;
+  }
+  .hero .kicker {
+    font-size: 8.5px; letter-spacing: .12em; text-transform: uppercase;
+    opacity: .85; font-weight: 700; margin-bottom: 3px;
+  }
+  .hero h1 { margin: 0 0 3px; font-size: 19px; font-weight: 800; color: #fff; }
+  .hero .sub { font-size: 10px; opacity: .92; }
+  .hero .pills { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .hero .pill {
+    background: rgba(255,255,255,.18); padding: 2px 9px; border-radius: 999px;
+    font-size: 8.5px; font-weight: 600;
+  }
+  .sec { break-inside: avoid; margin-top: 13px; }
+  .sec-title { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .sec-num {
+    background: #6C5CE7; color: #fff; border-radius: 8px;
+    font-size: 9px; font-weight: 800; padding: 2px 7px;
+  }
+  .sec-name { font-size: 13px; font-weight: 800; color: #33255C; }
+  .sec-hint { font-size: 9px; color: #7A7394; margin-left: auto; text-align: right; }
+  table { width: 100%; border-collapse: collapse; }
+  td { border: 1px solid #E4DEF6; padding: 4px 9px; vertical-align: top; }
+  td:first-child {
+    font-weight: 800; color: #33255C; background: #F3F0FC;
+    white-space: nowrap; width: 30%;
+  }
+  tr:nth-child(even) td:last-child { background: #F9F7FE; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    border: 1px solid #DDD5F5; background: #F6F3FE; border-radius: 999px;
+    padding: 3px 11px; font-size: 10px; font-weight: 700; color: #33255C;
+  }
+  .callout {
+    break-inside: avoid; border-radius: 10px; padding: 9px 13px;
+    margin-top: 10px; font-size: 10px;
+  }
+  .callout .t { font-weight: 800; margin-bottom: 2px; font-size: 10.5px; }
+  .note { background: #F4F1FD; border: 1px solid #DDD5F5; color: #3D3657; }
+  .bigrule {
+    margin-top: 18px; border-radius: 14px; padding: 26px 30px;
+    background: linear-gradient(135deg, #33255C 0%, #6C5CE7 55%, #8B7CF6 100%);
+    color: #fff; break-inside: avoid;
+  }
+  .bigrule .k {
+    font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
+    font-weight: 800; opacity: .85; margin-bottom: 8px;
+  }
+  .bigrule .m { font-size: 17px; font-weight: 800; line-height: 1.4; }
+  .bigrule .s { margin-top: 8px; font-size: 11px; opacity: .92; }
+  .page2 { break-before: page; }
+  .foot {
+    margin-top: 14px; text-align: center; font-size: 8.5px; color: #9B94B8;
+    letter-spacing: .04em;
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="kicker">AVE Analytica School · Практикум по работе с ИИ-агентами</div>
+    <h1>Памятка: как работать с ИИ</h1>
+    <div class="sub">Всё главное из Модуля 1 «Постановка задачи» на одной странице</div>
+    <div class="pills">
+      <span class="pill">модуль 1 · постановка задачи</span>
+      <span class="pill">памятка</span>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-title">
+      <span class="sec-num">01</span>
+      <span class="sec-name">4 слоя контекста — что модель должна знать</span>
+      <span class="sec-hint">даёшь до запроса</span>
+    </div>
+    <table>
+      <tr><td>1 · 🎯 Цель</td><td>Зачем это нужно и что хочешь получить на выходе.</td></tr>
+      <tr><td>2 · 📚 Доменные знания</td><td>Факты о компании/продукте, которых нет в открытом доступе.</td></tr>
+      <tr><td>3 · 👥 Аудитория</td><td>Для кого результат — тон, глубина, формулировки.</td></tr>
+      <tr><td>4 · 🚫 Ограничения</td><td>Что не нужно / что уже решено. Сильнее всего — негативом: «не делай…».</td></tr>
+    </table>
+  </div>
+
+  <div class="sec">
+    <div class="sec-title">
+      <span class="sec-num">02</span>
+      <span class="sec-name">Запрос под результат — описываешь до генерации</span>
+    </div>
+    <table>
+      <tr><td>1 · 🔍 Источники</td><td>Откуда брать данные — и что нельзя. <b>До</b> генерации.</td></tr>
+      <tr><td>2 · 📐 Формат</td><td>Таблица, список, текст, структура. <b>До</b> генерации.</td></tr>
+      <tr><td>3 · 🚫 Ограничения</td><td>Что точно не нужно — на что не тратить время. <b>До</b> генерации.</td></tr>
+      <tr><td>4 · 🔬 Детализация</td><td>Обзор или глубокий разбор? <b>До</b> генерации.</td></tr>
+      <tr><td>5 · ✅ Критерий готовности</td><td>Как понять, что результат годится. Если не можешь сформулировать — задача не дозрела. <b>До</b> генерации.</td></tr>
+    </table>
+  </div>
+
+  <div class="sec">
+    <div class="sec-title">
+      <span class="sec-num">03</span>
+      <span class="sec-name">Чек-лист — применяешь после генерации</span>
+    </div>
+    <div class="chips">
+      <span class="chip">🎯 Полезность</span>
+      <span class="chip">🔎 Точность</span>
+      <span class="chip">📎 Доказуемость</span>
+      <span class="chip">🗣 Стиль и тон</span>
+      <span class="chip">📄 Формат</span>
+      <span class="chip">⚠ Риски</span>
+    </div>
+  </div>
+
+  <div class="page2">
+
+    <div class="bigrule">
+      <div class="k">Главное правило</div>
+      <div class="m">💡 Молчание = разрешение модели придумать.</div>
+      <div class="s">Хороший запрос — не длинный, а полный.</div>
+    </div>
+
+    <div class="callout note">
+      <div class="t">Как пользоваться памяткой</div>
+      До запроса — проговори 4 слоя контекста и 5 компонентов запроса под результат.
+      После генерации — пройди результат по 6 критериям чек-листа, прежде чем использовать.
+    </div>
+
+    <div class="foot">AVE Analytica School · Практикум по работе с ИИ-агентами · Модуль 1 «Постановка задачи»</div>
+
+  </div>
+
+</body>
+</html>

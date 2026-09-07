@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>AVE · LLM, модели и токены · Шпаргалка</title>
+<style>
+  @page { size: A4; margin: 11mm 12mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 10.5px;
+    line-height: 1.45;
+    color: #3D3657;
+  }
+  .hero {
+    background: linear-gradient(135deg, #33255C 0%, #6C5CE7 55%, #8B7CF6 100%);
+    border-radius: 14px;
+    padding: 16px 20px;
+    color: #fff;
+  }
+  .hero .kicker {
+    font-size: 8.5px; letter-spacing: .12em; text-transform: uppercase;
+    opacity: .85; font-weight: 700; margin-bottom: 3px;
+  }
+  .hero h1 { margin: 0 0 3px; font-size: 19px; font-weight: 800; color: #fff; }
+  .hero .sub { font-size: 10px; opacity: .92; }
+  .hero .pills { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .hero .pill {
+    background: rgba(255,255,255,.18); padding: 2px 9px; border-radius: 999px;
+    font-size: 8.5px; font-weight: 600;
+  }
+  .sec { break-inside: avoid; margin-top: 13px; }
+  .sec-title { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .sec-num {
+    background: #6C5CE7; color: #fff; border-radius: 8px;
+    font-size: 9px; font-weight: 800; padding: 2px 7px;
+  }
+  .sec-name { font-size: 13px; font-weight: 800; color: #33255C; }
+  .sec-hint { font-size: 9px; color: #7A7394; margin-left: auto; text-align: right; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .card {
+    border: 1px solid #E4DEF6; border-radius: 10px; padding: 8px 11px;
+    background: #FCFBFF; break-inside: avoid;
+  }
+  .card .h { display: flex; align-items: center; gap: 7px; margin-bottom: 3px; }
+  .card .t { font-weight: 800; color: #33255C; font-size: 11px; }
+  .card .d { font-size: 9.8px; }
+  .card .ex { margin-top: 4px; font-size: 9.3px; color: #6E6791; }
+  code {
+    font-family: "SF Mono", Menlo, Consolas, "Courier New", monospace;
+    font-size: 9px; background: rgba(108,92,231,.1);
+    border-radius: 4px; padding: 0 4px;
+  }
+  .callout {
+    break-inside: avoid; border-radius: 10px; padding: 9px 13px;
+    margin-top: 10px; font-size: 10px;
+  }
+  .callout .t { font-weight: 800; margin-bottom: 2px; font-size: 10.5px; }
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; color: #7F1D1D; }
+  .safe { background: #F6FBF8; border: 1px solid #DCEFE3; color: #1f4d33; }
+  .note { background: #F4F1FD; border: 1px solid #DDD5F5; color: #3D3657; }
+  .page2 { break-before: page; }
+  .foot {
+    margin-top: 14px; text-align: center; font-size: 8.5px; color: #9B94B8;
+    letter-spacing: .04em;
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="kicker">AVE Analytica School · Практикум по работе с ИИ-агентами</div>
+    <h1>LLM, модели и токены</h1>
+    <div class="sub">С чем ты работаешь: что такое модель, какую выбрать и за что списываются токены</div>
+    <div class="pills">
+      <span class="pill">модуль 1 · постановка задачи</span>
+      <span class="pill">opencode</span>
+    </div>
+  </div>
+
+  <div class="callout note">
+    <div class="t">💡 Что такое LLM</div>
+    LLM (large language model, большая языковая модель) — ИИ, обученный на огромном объёме текстов.
+    Она не хранит факты и не «понимает» смысл, как человек, а предсказывает самое вероятное
+    продолжение текста — слово за словом. Так и собирается ответ.
+  </div>
+
+  <div class="sec">
+    <div class="sec-title">
+      <span class="sec-num">01</span>
+      <span class="sec-name">Поэтому помни, что LLM</span>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="h"><span class="t">🌀 Додумывает за тебя</span></div>
+        <div class="d">Где данных нет — подставит правдоподобное. Уверенно, но иногда неверно. Это называют галлюцинацией.</div>
+      </div>
+      <div class="card">
+        <div class="h"><span class="t">🙈 Не знает твоего контекста</span></div>
+        <div class="d">Внутренних данных твоей компании, свежих событий и деталей задачи в обучении не было — не дашь в запросе, ей неоткуда взять.</div>
+      </div>
+      <div class="card">
+        <div class="h"><span class="t">🎩 Уверенный тон ≠ правота</span></div>
+        <div class="d">Гладкость ответа — про устройство модели, а не про его верность. Проверка остаётся за тобой.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page2">
+
+    <div class="sec">
+      <div class="sec-title">
+        <span class="sec-num">02</span>
+        <span class="sec-name">Классы моделей — бери под задачу, а не «самую мощную»</span>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <div class="h"><span class="t">📝 Текстовая (универсальная)</span></div>
+          <div class="d">Письма, тексты, разбор, переписка. Базовый рабочий выбор для большинства задач.</div>
+          <div class="ex">В opencode: <code>claude-sonnet-4-6</code>, <code>gpt-4.1</code>, <code>deepseek-chat</code>, <code>qwen-max</code>, <code>glm-4.6</code>.</div>
+        </div>
+        <div class="card">
+          <div class="h"><span class="t">🧠 Рассуждающая</span></div>
+          <div class="d">Сложная логика, многошаговые задачи, аккуратные расчёты. Думает дольше — для простого избыточна.</div>
+          <div class="ex">В opencode: <code>deepseek-reasoner</code>, <code>kimi-k2-thinking</code> (ищи пометки reasoner / thinking в названии).</div>
+        </div>
+        <div class="card">
+          <div class="h"><span class="t">🖼 Мультимодальная</span></div>
+          <div class="d">Работает не только с текстом. Бывает двух видов: понимает картинки/скриншоты/файлы и генерирует изображения.</div>
+          <div class="ex">В opencode: понимает картинки — <code>gpt-4o</code>, <code>claude-sonnet-4-6</code>; генерирует — <code>gpt-image-1.5</code>.</div>
+        </div>
+        <div class="card">
+          <div class="h"><span class="t">💻 Кодовая</span></div>
+          <div class="d">Заточена под программирование и работу с кодом.</div>
+          <div class="ex">В opencode: <code>qwen3-coder</code>, <code>gpt-5.2-codex</code>, <code>kimi-k2.7-code</code> (ищи пометки coder / codex / code).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">
+        <span class="sec-num">03</span>
+        <span class="sec-name">Где выбирать и корпоративный контур безопасности</span>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <div class="h"><span class="t">🧭 opencode — десятки моделей в одном месте</span></div>
+          <div class="d">Модели сгруппированы по провайдерам (Anthropic, OpenAI, DeepSeek, Alibaba/qwen, Moonshot/kimi, z.ai/glm и др.). У каждой видно лимит контекста и цену за токены. Меняй модель под задачу: не уверен — начни с текстовой, переключись на рассуждающую, если не хватает глубины. «Лёгкие» версии (mini · flash · turbo · nano · air) дешевле и быстрее флагманов.</div>
+        </div>
+        <div class="card">
+          <div class="h"><span class="t">🔒 Контур безопасности</span></div>
+          <div class="d">Коммерческие и внутренние данные компании — только через корпоративный контур (opencode с рабочим доступом). Во внешние сервисы — лишь то, что и так публично.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">
+        <span class="sec-num">04</span>
+        <span class="sec-name">Токены — за что списывается и как тратить меньше</span>
+      </div>
+      <div class="callout note" style="margin-top:0;">
+        <div class="t">🪙 Токены = кусочки слов (≈ ¾ слова на токен)</div>
+        Считаются и ввод (запрос + весь контекст диалога), и вывод (ответ модели). Чем длиннее диалог
+        и чем больше приложенных материалов — тем дороже каждый следующий ответ. Один точный запрос
+        дешевле и лучше, чем десять уточняющих.
+      </div>
+      <div class="callout warn">
+        <div class="t">🙅 Не благодари модель зря</div>
+        Не веди пустую переписку — каждое сообщение стоит токенов.
+      </div>
+    </div>
+
+    <div class="foot">AVE Analytica School · Практикум по работе с ИИ-агентами · Модуль 1 «Постановка задачи»</div>
+
+  </div>
+
+</body>
+</html>

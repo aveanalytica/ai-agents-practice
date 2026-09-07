@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>AVE · Что такое MCP · Шпаргалка</title>
+<style>
+  @page { size: A4; margin: 11mm 12mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 10.5px;
+    line-height: 1.45;
+    color: #3B3555;
+  }
+  .hero {
+    background: linear-gradient(135deg, #33255C 0%, #6C5CE7 55%, #8B7CF6 100%);
+    border-radius: 14px;
+    padding: 16px 20px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .hero .mark {
+    height: 46px; width: 46px; flex-shrink: 0; border-radius: 12px;
+    background: rgba(255,255,255,.18);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 800; letter-spacing: .02em;
+  }
+  .hero .kicker {
+    font-size: 8.5px; letter-spacing: .12em; text-transform: uppercase;
+    opacity: .85; font-weight: 700; margin-bottom: 3px;
+  }
+  .hero h1 { margin: 0 0 3px; font-size: 19px; font-weight: 800; color: #fff; }
+  .hero .sub { font-size: 10px; opacity: .9; }
+  .hero .pills { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .hero .pill {
+    background: rgba(255,255,255,.18); padding: 2px 9px; border-radius: 999px;
+    font-size: 8.5px; font-weight: 600;
+  }
+  .sec { break-inside: avoid; margin-top: 13px; }
+  .sec-title { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .sec-num {
+    background: #6C5CE7; color: #fff; border-radius: 8px;
+    font-size: 9px; font-weight: 800; padding: 2px 7px;
+  }
+  .sec-name { font-size: 13px; font-weight: 800; color: #33255C; }
+  .sec-hint { font-size: 9px; color: #7E74A8; margin-left: auto; text-align: right; }
+  table { width: 100%; border-collapse: collapse; }
+  td { border: 1px solid #E3DDF7; padding: 4px 9px; vertical-align: top; }
+  td:first-child {
+    font-family: "SF Mono", Menlo, Consolas, "Courier New", monospace;
+    font-size: 9.5px; color: #33255C; background: #F2EFFF;
+    width: 34%;
+  }
+  table.lbl td:first-child {
+    font-family: inherit; font-size: 10px; font-weight: 700; white-space: normal;
+  }
+  tr:nth-child(even) td:last-child { background: #FAF8FF; }
+  .callout {
+    break-inside: avoid; border-radius: 10px; padding: 9px 13px;
+    margin-top: 10px; font-size: 10px;
+  }
+  .callout .t { font-weight: 800; margin-bottom: 2px; font-size: 10.5px; }
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; color: #7F1D1D; }
+  .safe { background: #F6FBF8; border: 1px solid #DCEFE3; color: #1f4d33; }
+  .note { background: #F4F1FF; border: 1px solid #E3DDF7; color: #33255C; }
+  .safe ul, .note ul, .warn ul { margin: 0; padding-left: 16px; }
+  .safe li, .note li, .warn li { margin: 1.5px 0; }
+  code {
+    font-family: "SF Mono", Menlo, Consolas, "Courier New", monospace;
+    font-size: 9.5px; background: rgba(51,37,92,.08);
+    border-radius: 4px; padding: 0 4px;
+  }
+  td:first-child code { background: none; padding: 0; }
+  .page2 { break-before: page; }
+  .foot {
+    margin-top: 14px; text-align: center; font-size: 8.5px; color: #A99BFF;
+    letter-spacing: .04em;
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="mark">AVE</div>
+    <div>
+      <div class="kicker">AVE Analytica School · Практикум по работе с ИИ-агентами</div>
+      <h1>Что такое MCP</h1>
+      <div class="sub">MCP — это руки агента в твоих рабочих системах: стандарт подключения инструментов к ИИ</div>
+      <div class="pills">
+        <span class="pill">Модуль 4 · Работа с агентом</span>
+        <span class="pill">opencode</span>
+        <span class="pill">безопасность</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout note">
+    <div class="t">🔌 Определение</div>
+    MCP (Model Context Protocol) — открытый стандарт подключения внешних систем и инструментов
+    к ИИ-агенту. MCP-сервер — это «переходник», через который агент сам читает и делает что-то
+    в твоих рабочих системах: файлах, базах данных, трекерах задач, вебе. Без MCP агент — умный
+    собеседник в пустой комнате; с MCP — он в твоём рабочем контуре.
+  </div>
+
+  <div class="sec">
+    <div class="sec-title">
+      <span class="sec-num">01</span>
+      <span class="sec-name">Зачем нужен</span>
+      <span class="sec-hint">конец эпохи копипаста</span>
+    </div>
+    <table class="lbl">
+      <tr><td>Без MCP</td><td>ты вручную копируешь данные в чат, а результат — обратно в систему</td></tr>
+      <tr><td>С MCP</td><td>агент сам заходит в систему, берёт актуальное и возвращает результат</td></tr>
+      <tr><td>Ключевая выгода</td><td>живую систему (доску задач, базу знаний) в чат не вставишь — через MCP агент читает её сам</td></tr>
+    </table>
+  </div>
+
+  <div class="sec">
+    <div class="sec-title">
+      <span class="sec-num">02</span>
+      <span class="sec-name">Примеры типовых MCP-серверов</span>
+      <span class="sec-hint">один сервер = одна система</span>
+    </div>
+    <table class="lbl">
+      <tr><td>📁 Файловая система</td><td>читать и искать файлы проекта, просматривать папки</td></tr>
+      <tr><td>🗄 База данных</td><td>запросы к БД; по умолчанию — только чтение (SELECT)</td></tr>
+      <tr><td>🔎 Веб-поиск</td><td>актуальная информация из интернета вместо устаревших знаний модели</td></tr>
+      <tr><td>📋 Трекер задач / база знаний</td><td>читать задачи, документацию, заметки команды</td></tr>
+    </table>
+  </div>
+
+  <div class="page2">
+
+    <div class="sec">
+      <div class="sec-title">
+        <span class="sec-num">03</span>
+        <span class="sec-name">Как подключается в opencode — концепция</span>
+        <span class="sec-hint">точный синтаксис — сверяйся с документацией opencode</span>
+      </div>
+      <table class="lbl">
+        <tr><td>Шаг 1 · Конфиг</td><td>MCP-сервер описывается в конфиге opencode: имя сервера, команда запуска (локальный) или URL (удалённый), нужные переменные окружения</td></tr>
+        <tr><td>Шаг 2 · Перезапуск</td><td>после правки конфига перезапусти opencode — без перезапуска новый сервер не подхватится</td></tr>
+        <tr><td>Шаг 3 · Проверка</td><td>убедись, что сервер появился в списке доступных инструментов и отвечает на простой запрос</td></tr>
+      </table>
+      <div class="callout warn">
+        <div class="t">⚠ Не выдумывай флаги</div>
+        Синтаксис конфигурации MCP в opencode меняется между версиями. Точные поля и команды
+        бери из официальной документации opencode и <code>--help</code>, а не из памяти или старых заметок.
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">
+        <span class="sec-num">04</span>
+        <span class="sec-name">Типичные ошибки</span>
+        <span class="sec-hint">сначала проверь это, потом ищи глубже</span>
+      </div>
+      <table class="lbl">
+        <tr><td>Агент не видит сервер</td><td>забыл перезапустить opencode после добавления сервера в конфиг</td></tr>
+        <tr><td>Сервер не стартует</td><td>проверь команду запуска вручную в терминале — увидишь настоящую ошибку</td></tr>
+        <tr><td>Ошибка авторизации</td><td>токен/ключ не подхватился — проверь переменные окружения и их имена в конфиге</td></tr>
+        <tr><td>Агент «не может»</td><td>у сервера нет нужного права (например, read-only) — это часто намеренно, см. правила ниже</td></tr>
+      </table>
+    </div>
+
+    <div class="callout safe">
+      <div class="t">✓ Правила безопасности</div>
+      <ul>
+        <li><b>Минимум прав:</b> подключай только нужные серверы и инструменты, не «всё на всякий случай»</li>
+        <li><b>Только чтение по умолчанию:</b> запись и действия включай осознанно и под контролем (см. «Контроль агента»)</li>
+        <li><b>Секреты — в переменных окружения,</b> не в чате и не в коде: токены, ключи, внутренние URL/IP</li>
+        <li><b>Границы данных:</b> внутреннее — через корпоративный контур, персональные данные не отправляем</li>
+        <li><b>Сомневаешься</b>, можно ли пускать агента в систему или давать право на запись, — спроси куратора курса в учебном кабинете AVE Analytica</li>
+      </ul>
+    </div>
+
+    <div class="foot">AVE Analytica School · Практикум по работе с ИИ-агентами · Модуль 4 «Работа с агентом»</div>
+
+  </div>
+
+</body>
+</html>

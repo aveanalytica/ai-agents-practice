@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>AVE · Чек-лист оценки результата · Шпаргалка</title>
+<style>
+  @page { size: A4; margin: 11mm 12mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 10.5px;
+    line-height: 1.45;
+    color: #3D3657;
+  }
+  .hero {
+    background: linear-gradient(135deg, #33255C 0%, #6C5CE7 55%, #8B7CF6 100%);
+    border-radius: 14px;
+    padding: 16px 20px;
+    color: #fff;
+  }
+  .hero .kicker {
+    font-size: 8.5px; letter-spacing: .12em; text-transform: uppercase;
+    opacity: .85; font-weight: 700; margin-bottom: 3px;
+  }
+  .hero h1 { margin: 0 0 3px; font-size: 19px; font-weight: 800; color: #fff; }
+  .hero .sub { font-size: 10px; opacity: .92; }
+  .hero .pills { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .hero .pill {
+    background: rgba(255,255,255,.18); padding: 2px 9px; border-radius: 999px;
+    font-size: 8.5px; font-weight: 600;
+  }
+  .sec { break-inside: avoid; margin-top: 13px; }
+  .sec-title { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .sec-num {
+    background: #6C5CE7; color: #fff; border-radius: 8px;
+    font-size: 9px; font-weight: 800; padding: 2px 7px;
+  }
+  .sec-name { font-size: 13px; font-weight: 800; color: #33255C; }
+  .sec-hint { font-size: 9px; color: #7A7394; margin-left: auto; text-align: right; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .card {
+    border: 1px solid #E4DEF6; border-radius: 10px; padding: 8px 11px;
+    background: #FCFBFF; break-inside: avoid;
+  }
+  .card .h { display: flex; align-items: center; gap: 7px; margin-bottom: 3px; }
+  .card .n {
+    background: #8B7CF6; color: #fff; border-radius: 7px;
+    font-size: 9px; font-weight: 800; padding: 1px 6px;
+  }
+  .card .t { font-weight: 800; color: #33255C; font-size: 11px; }
+  .card .d { font-size: 9.8px; }
+  .card .flag { margin-top: 4px; font-size: 9.3px; color: #8A3B3B; }
+  .callout {
+    break-inside: avoid; border-radius: 10px; padding: 9px 13px;
+    margin-top: 10px; font-size: 10px;
+  }
+  .callout .t { font-weight: 800; margin-bottom: 2px; font-size: 10.5px; }
+  .warn { background: #FFF5F5; border: 1px solid #FECACA; color: #7F1D1D; }
+  table { width: 100%; border-collapse: collapse; }
+  td { border: 1px solid #E4DEF6; padding: 4px 9px; vertical-align: top; }
+  td:first-child {
+    font-weight: 800; color: #33255C; background: #F3F0FC;
+    white-space: nowrap; width: 22%;
+  }
+  tr:nth-child(even) td:last-child { background: #F9F7FE; }
+  .verdict td:first-child { width: 14%; }
+  .page2 { break-before: page; }
+  .foot {
+    margin-top: 14px; text-align: center; font-size: 8.5px; color: #9B94B8;
+    letter-spacing: .04em;
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="kicker">AVE Analytica School · Практикум по работе с ИИ-агентами</div>
+    <h1>Чек-лист оценки результата</h1>
+    <div class="sub">6 критериев, которые применяешь после генерации — чтобы не отдать AI-slop за реальную работу</div>
+    <div class="pills">
+      <span class="pill">модуль 1 · постановка задачи</span>
+      <span class="pill">после генерации</span>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <div class="t">⚠ Убедительный вид ≠ полезный результат</div>
+    Проверяй по критериям, прежде чем использовать.
+  </div>
+
+  <div class="sec">
+    <div class="sec-title">
+      <span class="sec-num">01</span>
+      <span class="sec-name">6 критериев оценки</span>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="h"><span class="n">1</span><span class="t">🎯 Полезность</span></div>
+        <div class="d">Я могу использовать это прямо сейчас для принятия решения или следующего шага?</div>
+        <div class="flag">🚩 «Выглядит интересно, но непонятно, что с этим делать» — не проходит.</div>
+      </div>
+      <div class="card">
+        <div class="h"><span class="n">2</span><span class="t">🔎 Точность</span></div>
+        <div class="d">Факты и цифры соответствуют реальности? Нет противоречий с тем, что я знаю?</div>
+        <div class="flag">🚩 Модель уверенно назвала конкретные цифры без источников — проверь.</div>
+      </div>
+      <div class="card">
+        <div class="h"><span class="n">3</span><span class="t">📎 Доказуемость</span></div>
+        <div class="d">Я могу показать это коллеге и объяснить, откуда данные?</div>
+        <div class="flag">🚩 «Модель так написала» — не аргумент. Нужны источники или твоя экспертиза.</div>
+      </div>
+      <div class="card">
+        <div class="h"><span class="n">4</span><span class="t">🗣 Стиль и тон</span></div>
+        <div class="d">Язык подходит для аудитории? Нет канцелярита и корпоративных клише?</div>
+        <div class="flag">🚩 «Важно отметить, что...», «Следует учитывать...» — типичный AI-тон, редактируй.</div>
+      </div>
+      <div class="card">
+        <div class="h"><span class="n">5</span><span class="t">📄 Формат</span></div>
+        <div class="d">Структура удобна для использования? Нет лишних разделов и ненужной длины?</div>
+        <div class="flag">🚩 Если результат длиннее, чем нужно — это не «полнота», это шум.</div>
+      </div>
+      <div class="card">
+        <div class="h"><span class="n">6</span><span class="t">⚠ Риски</span></div>
+        <div class="d">Нет ли конфиденциальных данных, юридических рисков, обещаний от лица компании?</div>
+        <div class="flag">🚩 Внутренние и коммерческие данные — только через корпоративный контур (opencode с рабочим доступом). Персональные — никуда и никогда.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page2">
+
+    <div class="sec">
+      <div class="sec-title">
+        <span class="sec-num">02</span>
+        <span class="sec-name">Вердикт</span>
+        <span class="sec-hint">сколько критериев прошло →</span>
+      </div>
+      <table class="verdict">
+        <tr><td>6/6</td><td>Отлично — можно использовать.</td></tr>
+        <tr><td>4–5</td><td>Поправь слабые места, потом используй.</td></tr>
+        <tr><td>2–3</td><td>Нужна серьёзная доработка или новый запрос.</td></tr>
+        <tr><td>0–1</td><td>Пересмотри запрос под результат и запроси заново.</td></tr>
+      </table>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">
+        <span class="sec-num">03</span>
+        <span class="sec-name">Куда можно отправлять данные</span>
+        <span class="sec-hint">общие правила безопасной работы с ИИ</span>
+      </div>
+      <table>
+        <tr><td>🌐 Публичные данные</td><td>Сайты, открытые отчёты, кейсы → <b>любая модель</b>.</td></tr>
+        <tr><td>🏢 Внутренние данные</td><td>Процессы, стратегии, планы → <b>только корпоративный контур</b>.</td></tr>
+        <tr><td>💼 Коммерческие данные</td><td>Сделки, цены, клиенты, финансы → <b>только корпоративный контур</b>.</td></tr>
+        <tr><td>🔒 Персональные данные</td><td>ФИО, контакты, HR, зарплаты → <b>никуда</b>.</td></tr>
+      </table>
+      <div class="callout warn" style="margin-top:8px;">
+        <div class="t">⚠ Сомневаешься, куда можно отправить данные?</div>
+        Спроси куратора курса в учебном кабинете AVE Analytica — до отправки, а не после.
+      </div>
+    </div>
+
+    <div class="foot">AVE Analytica School · Практикум по работе с ИИ-агентами · Модуль 1 «Постановка задачи»</div>
+
+  </div>
+
+</body>
+</html>

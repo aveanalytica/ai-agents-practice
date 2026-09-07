@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>AVE · Памятка модуля 4 · Шпаргалка</title>
+<style>
+  @page { size: A4; margin: 11mm 12mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 10.5px;
+    line-height: 1.45;
+    color: #3B3555;
+  }
+  .hero {
+    background: linear-gradient(135deg, #33255C 0%, #6C5CE7 55%, #8B7CF6 100%);
+    border-radius: 14px;
+    padding: 16px 20px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .hero .mark {
+    height: 46px; width: 46px; flex-shrink: 0; border-radius: 12px;
+    background: rgba(255,255,255,.18);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 800; letter-spacing: .02em;
+  }
+  .hero .kicker {
+    font-size: 8.5px; letter-spacing: .12em; text-transform: uppercase;
+    opacity: .85; font-weight: 700; margin-bottom: 3px;
+  }
+  .hero h1 { margin: 0 0 3px; font-size: 19px; font-weight: 800; color: #fff; }
+  .hero .sub { font-size: 10px; opacity: .9; }
+  .hero .pills { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .hero .pill {
+    background: rgba(255,255,255,.18); padding: 2px 9px; border-radius: 999px;
+    font-size: 8.5px; font-weight: 600;
+  }
+  .sec { break-inside: avoid; margin-top: 13px; }
+  .sec-title { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .sec-num {
+    background: #6C5CE7; color: #fff; border-radius: 8px;
+    font-size: 9px; font-weight: 800; padding: 2px 7px;
+  }
+  .sec-name { font-size: 13px; font-weight: 800; color: #33255C; }
+  .sec-hint { font-size: 9px; color: #7E74A8; margin-left: auto; text-align: right; }
+  table { width: 100%; border-collapse: collapse; }
+  td { border: 1px solid #E3DDF7; padding: 4px 9px; vertical-align: top; }
+  table.lbl td:first-child {
+    font-family: inherit; font-size: 10px; font-weight: 700; white-space: normal;
+    color: #33255C; background: #F2EFFF; width: 26%;
+  }
+  tr:nth-child(even) td:last-child { background: #FAF8FF; }
+  .callout {
+    break-inside: avoid; border-radius: 10px; padding: 9px 13px;
+    margin-top: 10px; font-size: 10px;
+  }
+  .callout .t { font-weight: 800; margin-bottom: 2px; font-size: 10.5px; }
+  .safe { background: #F6FBF8; border: 1px solid #DCEFE3; color: #1f4d33; }
+  .foot {
+    margin-top: 14px; text-align: center; font-size: 8.5px; color: #A99BFF;
+    letter-spacing: .04em;
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="mark">AVE</div>
+    <div>
+      <div class="kicker">AVE Analytica School · Практикум по работе с ИИ-агентами</div>
+      <h1>Памятка модуля</h1>
+      <div class="sub">Всё главное Модуля 4 на одной странице: от «что такое агент» до контроля</div>
+      <div class="pills">
+        <span class="pill">Модуль 4 · Работа с агентом</span>
+        <span class="pill">главное модуля</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-title">
+      <span class="sec-num">01</span>
+      <span class="sec-name">Модуль одной таблицей</span>
+      <span class="sec-hint">четыре занятия — четыре строки</span>
+    </div>
+    <table class="lbl">
+      <tr>
+        <td>4.1 · Что такое агент и MCP</td>
+        <td>Агент = модель + доступ к инструментам + автономный цикл (план → действие → наблюдение → правка).
+        Чат отвечает — агент делает. Доступ к инструментам — это MCP, руки агента в твоих системах:
+        файловая система, база данных, веб-поиск, трекер задач. Чтение безопасно, действие — точка контроля.</td>
+      </tr>
+      <tr>
+        <td>4.2 · ТЗ агенту</td>
+        <td>Агенту дают не запрос, а ТЗ: Цель · Контекст и материал · Границы · Критерий готовности.
+        Первые две части — Модуль 1. Новое под агента — границы (чего не делать) и критерий
+        как точка остановки.</td>
+      </tr>
+      <tr>
+        <td>4.3 · Контроль и доверие</td>
+        <td>Человек в контуре: доверие по риску действия (🟢 🟡 🔴 ⚫ из Модуля 2). Обратимое — доверяй,
+        необратимое — точка контроля. Два правила безопасной работы с ИИ: минимум прав
+        (read-only по умолчанию) и граница данных.</td>
+      </tr>
+      <tr>
+        <td>4.4 · Практика</td>
+        <td>Поставил агенту ТЗ → он сам собрал данные из систем (трекер задач, база знаний) → ты
+        проконтролировал его в точке необратимого действия. Агент крутит рутину, человек держит цель,
+        границы и стоп.</td>
+      </tr>
+    </table>
+    <div class="callout safe">
+      <div class="t">🤖 Главное модуля</div>
+      Работа с агентом — это не «он сделает всё за меня», а «я ставлю задачу, задаю границы
+      и держу руку на необратимом, а рутинный цикл он крутит сам».
+    </div>
+  </div>
+
+  <div class="foot">AVE Analytica School · Практикум по работе с ИИ-агентами · Модуль 4 «Работа с агентом»</div>
+
+</body>
+</html>

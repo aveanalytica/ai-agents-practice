@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>AVE · Запрос под результат · Шпаргалка</title>
+<style>
+  @page { size: A4; margin: 11mm 12mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 10.5px;
+    line-height: 1.45;
+    color: #3D3657;
+  }
+  .hero {
+    background: linear-gradient(135deg, #33255C 0%, #6C5CE7 55%, #8B7CF6 100%);
+    border-radius: 14px;
+    padding: 16px 20px;
+    color: #fff;
+  }
+  .hero .kicker {
+    font-size: 8.5px; letter-spacing: .12em; text-transform: uppercase;
+    opacity: .85; font-weight: 700; margin-bottom: 3px;
+  }
+  .hero h1 { margin: 0 0 3px; font-size: 19px; font-weight: 800; color: #fff; }
+  .hero .sub { font-size: 10px; opacity: .92; }
+  .hero .pills { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .hero .pill {
+    background: rgba(255,255,255,.18); padding: 2px 9px; border-radius: 999px;
+    font-size: 8.5px; font-weight: 600;
+  }
+  .sec { break-inside: avoid; margin-top: 13px; }
+  .sec-title { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .sec-num {
+    background: #6C5CE7; color: #fff; border-radius: 8px;
+    font-size: 9px; font-weight: 800; padding: 2px 7px;
+  }
+  .sec-name { font-size: 13px; font-weight: 800; color: #33255C; }
+  .sec-hint { font-size: 9px; color: #7A7394; margin-left: auto; text-align: right; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .card {
+    border: 1px solid #E4DEF6; border-radius: 10px; padding: 8px 11px;
+    background: #FCFBFF; break-inside: avoid;
+  }
+  .card.wide { grid-column: 1 / -1; border-color: #C9BEF3; background: #F6F3FE; }
+  .card .h { display: flex; align-items: center; gap: 7px; margin-bottom: 3px; }
+  .card .n {
+    background: #8B7CF6; color: #fff; border-radius: 7px;
+    font-size: 9px; font-weight: 800; padding: 1px 6px;
+  }
+  .card .t { font-weight: 800; color: #33255C; font-size: 11px; }
+  .card .d { font-size: 9.8px; }
+  .card .ex {
+    margin-top: 4px; font-size: 9.3px; color: #6E6791;
+    border-left: 3px solid #A99BFF; padding-left: 7px; font-style: italic;
+  }
+  .callout {
+    break-inside: avoid; border-radius: 10px; padding: 9px 13px;
+    margin-top: 10px; font-size: 10px;
+  }
+  .callout .t { font-weight: 800; margin-bottom: 2px; font-size: 10.5px; }
+  .safe { background: #F6FBF8; border: 1px solid #DCEFE3; color: #1f4d33; }
+  .note { background: #F4F1FD; border: 1px solid #DDD5F5; color: #3D3657; }
+  .template {
+    border: 1px dashed #8B7CF6; border-radius: 12px; padding: 12px 15px;
+    background: #FCFBFF; font-size: 10.5px;
+  }
+  .template .row { margin: 7px 0; }
+  .template .lbl { font-weight: 800; color: #6C5CE7; }
+  .template .line { border-bottom: 1px dotted #C9BEF3; height: 13px; }
+  .page2 { break-before: page; }
+  .foot {
+    margin-top: 14px; text-align: center; font-size: 8.5px; color: #9B94B8;
+    letter-spacing: .04em;
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="kicker">AVE Analytica School · Практикум по работе с ИИ-агентами</div>
+    <h1>Запрос под результат</h1>
+    <div class="sub">5 компонентов, которые описываешь до генерации — чтобы модель не додумывала за тебя</div>
+    <div class="pills">
+      <span class="pill">модуль 1 · постановка задачи</span>
+      <span class="pill">до генерации</span>
+    </div>
+  </div>
+
+  <div class="callout safe">
+    <div class="t">💡 Главное правило</div>
+    Молчание = разрешение модели додумать. Описывай явно — все пять компонентов.
+  </div>
+
+  <div class="sec">
+    <div class="sec-title">
+      <span class="sec-num">01</span>
+      <span class="sec-name">5 компонентов запроса под результат</span>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="h"><span class="n">1</span><span class="t">🔍 Источники</span></div>
+        <div class="d">Откуда брать данные — и что нельзя использовать.</div>
+        <div class="ex">«Только публичные сайты конкурентов, G2, открытые кейсы. Не придумывай цифры.»</div>
+      </div>
+      <div class="card">
+        <div class="h"><span class="n">2</span><span class="t">📐 Формат</span></div>
+        <div class="d">В каком виде нужен ответ: таблица, список, текст, структура с заголовками.</div>
+        <div class="ex">«Таблица сравнения, потом 3–4 коротких вывода без лишних слов.»</div>
+      </div>
+      <div class="card">
+        <div class="h"><span class="n">3</span><span class="t">🚫 Ограничения</span></div>
+        <div class="d">Что точно не нужно и на что не тратить время.</div>
+        <div class="ex">«Без глобальных игроков типа Jira. Только конкуренты, с которыми встречаемся в сделках.»</div>
+      </div>
+      <div class="card">
+        <div class="h"><span class="n">4</span><span class="t">🔬 Детализация</span></div>
+        <div class="d">Насколько глубоко копать: поверхностный обзор или детальный разбор.</div>
+        <div class="ex">«По каждому конкуренту 2–3 предложения — сравнительная картина, не глубокий разбор.»</div>
+      </div>
+      <div class="card wide">
+        <div class="h"><span class="n">5</span><span class="t">✅ Критерий готовности — самый важный</span></div>
+        <div class="d">Как понять, что результат годится. Если не можешь сформулировать — задача ещё не дозрела.</div>
+        <div class="ex">«Готово, когда инвестор понимает, чем мы отличаемся, и не задаёт уточняющих вопросов.»</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page2">
+
+    <div class="sec">
+      <div class="sec-title">
+        <span class="sec-num">02</span>
+        <span class="sec-name">Шаблон запроса</span>
+        <span class="sec-hint">заполни перед отправкой</span>
+      </div>
+      <div class="template">
+        <div class="row"><span class="lbl">✏ Задача (через результат):</span> помоги мне решить / понять / выбрать…</div>
+        <div class="line"></div>
+        <div class="row"><span class="lbl">🔍 Источники:</span></div>
+        <div class="line"></div>
+        <div class="row"><span class="lbl">📐 Формат:</span></div>
+        <div class="line"></div>
+        <div class="row"><span class="lbl">🚫 Ограничения:</span></div>
+        <div class="line"></div>
+        <div class="row"><span class="lbl">🔬 Детализация:</span></div>
+        <div class="line"></div>
+        <div class="row"><span class="lbl">✅ Готово, когда:</span></div>
+        <div class="line"></div>
+      </div>
+      <div class="callout note">
+        <div class="t">💡 Проверка перед отправкой</div>
+        Если по любому из пяти пунктов ответа нет — модель достроит его сама. Хороший запрос — не длинный, а полный.
+      </div>
+    </div>
+
+    <div class="foot">AVE Analytica School · Практикум по работе с ИИ-агентами · Модуль 1 «Постановка задачи»</div>
+
+  </div>
+
+</body>
+</html>
