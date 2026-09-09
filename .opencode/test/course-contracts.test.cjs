@@ -38,6 +38,16 @@ for (const mission of missions) {
     checks.length >= 2 && checks.length <= 3,
     `${mission} must have 2-3 content stops, got ${checks.length}`,
   );
+  const readyPrompts = content.match(/напиши мне/giu) ?? [];
+  assert.ok(
+    readyPrompts.length >= checks.length,
+    `${mission} must give a ready-to-send "Напиши мне" message before every Check`,
+  );
+  assert.doesNotMatch(
+    content,
+    /Дай заготовку|\[(?:что|номер|сигнал|мой выбор|буква|чём|действие|важный|конкретное|решению)[^\]]*\]/u,
+    `${mission} must not leave fill-in-the-blank placeholders without a filled default`,
+  );
   assert.doesNotMatch(
     content,
     /покажи студенту содержимое `[^`]+` целиком/u,
@@ -46,6 +56,11 @@ for (const mission of missions) {
 }
 
 const instructions = read('.opencode/SCRIPT_INSTRUCTIONS.md');
+assert.match(
+  instructions,
+  /Напиши мне/u,
+  'every message before a Check must end with a ready-to-send block',
+);
 assert.match(
   instructions,
   /не длиннее 120 слов/u,
